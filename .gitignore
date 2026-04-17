@@ -1,0 +1,21 @@
+# 配置文件（包含敏感信息）
+deploy_config.sh
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.bak
+.DS_Store
+
+# WordPress文件
+/wordpress/
+wp-config.php
+
+# 系统文件
+.cache/
+.ssh/
+.viminfo
+.bash_history

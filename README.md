@@ -31,28 +31,28 @@
 
 ### 2. 获取脚本
 克隆项目
-git clone https://github.com/mohen857/auto-deploy-wordpress.git
+git clone https://github.com/mohen857/auto-deploy-wordpress.git  
 cd auto-deploy-wordpress
 ### 3. 配置参数复制并编辑配置文件
-cp deploy_config.example.sh deploy_config.sh
+cp deploy_config.example.sh deploy_config.sh  
 nano deploy_config.sh
 ### 4. 执行部署
 运行部署脚本
-chmod +x deploy_blog.sh
+chmod +x deploy_blog.sh  
 ./deploy_blog.sh
 ## 📁 项目结构
-auto-deploy-wordpress/
-├── deploy_blog.sh # 主部署脚本
-├── deploy_config.example.sh # 配置示例
-├── deploy_config.sh # 配置文件
-├── README.md # 本文件
-├── USAGE.md # 详细使用指南
-├── TROUBLESHOOTING.md # 故障排除
-├── CONTRIBUTING.md # 贡献指南
-├── LICENSE # 许可证
-├── PROJECT_SUMMARY.md # 项目总结
-├── quick_install.sh # 快速安装脚本
-└── .gitignore # Git忽略规则
+auto-deploy-wordpress/  
+├── deploy_blog.sh # 主部署脚本  
+├── deploy_config.example.sh # 配置示例  
+├── deploy_config.sh # 配置文件  
+├── README.md # 本文件  
+├── USAGE.md # 详细使用指南  
+├── TROUBLESHOOTING.md # 故障排除  
+├── CONTRIBUTING.md # 贡献指南  
+├── LICENSE # 许可证  
+├── PROJECT_SUMMARY.md # 项目总结  
+├── quick_install.sh # 快速安装脚本  
+└── .gitignore # Git忽略规则  
 ## 📊 部署流程
 1. 系统更新与初始化
 2. 安装配置 Nginx

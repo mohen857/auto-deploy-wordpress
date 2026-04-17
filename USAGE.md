@@ -46,7 +46,7 @@ chmod +x deploy_blog.sh
 ### 必要配置
 | 配置项 | 说明 | 示例 |
 |--------|------|------|
-| `SERVER_IP` | 服务器公网IP | `8.136.131.96` |
+| `SERVER_IP` | 服务器公网IP | `yourid` |
 | `MYSQL_ROOT_PASSWORD` | MySQL root密码 | `My@StrongPass123` |
 | `WP_ADMIN_PASSWORD` | WordPress管理员密码 | `Admin@Secure456` |
 

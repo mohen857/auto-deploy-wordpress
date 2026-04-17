@@ -76,7 +76,7 @@ auto-deploy-wordpress/
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
-| `SERVER_IP` | 服务器公网IP | `8.136.131.96` |
+| `SERVER_IP` | 服务器公网IP | `yourip` |
 | `MYSQL_ROOT_PASSWORD` | MySQL root密码 | `YourStrongPass123!` |
 | `WP_DB_PASSWORD` | WordPress数据库密码 | `YourDBPass123!` |
 | `WP_ADMIN_PASSWORD` | WordPress管理员密码 | `YourAdminPass123!` |

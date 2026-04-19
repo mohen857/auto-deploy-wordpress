@@ -122,6 +122,75 @@ certbot --nginx -d 您的域名
 mysqldump -u root -p wordpress > wordpress_backup.sql
 备份网站文件
 tar -czf wordpress_files_backup.tar.gz /var/www/wordpress
+
+## 📈 监控系统部署
+
+### 监控架构说明
+本项目采用现代化的三层监控架构：
+1. **数据采集层**: Node Exporter 收集系统指标
+2. **数据存储层**: Prometheus 存储和查询时序数据
+3. **可视化层**: Grafana 提供可视化仪表盘
+
+### 快速部署监控系统
+
+进入监控目录
+cd ~/monitoring
+下载监控部署脚本
+wget -O deploy_monitoring.sh https://raw.githubusercontent.com/mohen857/auto-deploy-wordpress/main/scripts/deploy_monitoring.sh
+赋予执行权限
+chmod +x deploy_monitoring.sh
+运行部署脚本（将 YOUR_SERVER_IP 替换为您的服务器公网IP）
+./deploy_monitoring.sh
+
+### 手动部署步骤
+如果您希望手动部署，按以下步骤操作：
+
+1. **安装 Node Exporter** (端口: 9100)
+下载并安装 Node Exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v1.8.0/node_exporter-1.8.0.linux-amd64.tar.gz
+tar -xzf node_exporter-*.tar.gz
+sudo mv node_exporter-*/node_exporter /usr/local/bin/
+sudo useradd -rs /bin/false node_exporter
+sudo systemctl start node_exporter
+sudo systemctl enable node_exporter
+2. **安装 Prometheus** (端口: 9090)
+下载并安装 Prometheus
+wget https://github.com/prometheus/prometheus/releases/download/v2.51.0/prometheus-2.51.0.linux-amd64.tar.gz
+tar -xzf prometheus-*.tar.gz
+sudo mv prometheus-*/ /opt/prometheus
+sudo useradd -rs /bin/false prometheus
+sudo systemctl start prometheus
+sudo systemctl enable prometheus
+3. **安装 Grafana** (端口: 3000)
+添加 Grafana 仓库
+sudo apt-get install -y software-properties-common
+wget -q -O - https://packages.grafana.com/gpg.key| sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/grafana.gpg
+echo "deb https://packages.grafana.com/oss/debstable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+sudo apt-get update
+sudo apt-get install -y grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+4. **配置 Grafana**
+   1. 访问 http://您的服务器IP:3000
+   2. 初始账号: admin / admin
+   3. 添加 Prometheus 数据源 (URL: http://localhost:9090)
+   4. 导入仪表盘 (ID: 8919)
+
+### 安全组配置
+在阿里云控制台添加以下安全组规则：
+
+| 端口 | 协议 | 用途 | 建议来源 |
+|------|------|------|----------|
+| 3000 | TCP | Grafana 面板 | 您的IP/32 |
+| 9090 | TCP | Prometheus UI | 127.0.0.1/32 |
+| 9100 | TCP | Node Exporter | 127.0.0.1/32 |
+
+### 故障排除
+- **Grafana 无法访问**: 检查防火墙和安全组规则
+- **Prometheus 无数据**: 检查 Node Exporter 是否运行
+- **仪表盘不显示**: 检查数据源连接和Prometheus目标状态
+
+
 ## 技术支持
 如遇问题，请检查：
 1. 脚本日志文件

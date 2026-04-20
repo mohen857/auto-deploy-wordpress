@@ -1,0 +1,33 @@
+#!/bin/bash
+# WordPress监控系统配置文件示例
+# 将此文件复制为 monitor.conf 并修改配置
+
+# 服务器配置
+SERVER_IP="YOUR_SERVER_IP"  # 请修改为您的服务器公网IP
+SERVER_NAME="wordpress-server"
+
+# WordPress网站监控
+WEBSITE_URL="http://localhost"
+WEBSITE_NAME="我的WordPress博客"
+
+# 告警阈值配置
+DISK_THRESHOLD=90           # 磁盘使用率告警阈值(%)
+MEMORY_THRESHOLD=80         # 内存使用率告警阈值(%)
+LOAD_THRESHOLD=70           # 系统负载告警阈值(%)
+CPU_THRESHOLD=85            # CPU使用率告警阈值(%)
+
+# 服务检查配置
+CHECK_NGINX=true           # 检查Nginx服务
+CHECK_MYSQL=true           # 检查MySQL服务
+CHECK_PHP_FPM=true         # 检查PHP-FPM服务
+CHECK_WORDPRESS=true       # 检查WordPress网站
+
+# 日志配置
+LOG_DIR="/var/log/monitoring"
+LOG_RETENTION_DAYS=30
+
+# 告警配置
+ALERT_ENABLED=true
+# ALERT_METHOD="log"  # log, email, webhook
+# 后续可扩展为邮件、钉钉等告警方式
+

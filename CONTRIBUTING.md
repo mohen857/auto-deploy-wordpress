@@ -33,17 +33,11 @@
 
 ## 项目结构
 auto-deploy-wordpress/  
-
 ├── deploy_blog.sh # 主部署脚本  
-
 ├── deploy_config.example.sh # 配置示例  
-
 ├── README.md # 项目说明  
-
 ├── USAGE.md # 使用指南  
-
 ├── TROUBLESHOOTING.md # 故障排除  
-
 └── CONTRIBUTING.md # 贡献指南
 ## 联系方式
 如有问题，请通过以下方式联系：

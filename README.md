@@ -92,17 +92,28 @@ chmod +x deploy_blog.sh
 ./deploy_blog.sh
 ## 📁 项目结构
 auto-deploy-wordpress/  
-├── deploy_blog.sh # 主部署脚本  
-├── deploy_config.example.sh # 配置示例  
-├── deploy_config.sh # 配置文件  
-├── README.md # 本文件  
-├── USAGE.md # 详细使用指南  
-├── TROUBLESHOOTING.md # 故障排除  
-├── CONTRIBUTING.md # 贡献指南  
-├── LICENSE # 许可证  
-├── PROJECT_SUMMARY.md # 项目总结  
-├── quick_install.sh # 快速安装脚本  
-└── .gitignore # Git忽略规则  
+├── deploy_blog.sh                 # 主部署脚本  
+├── deploy_config.example.sh       # 配置示例  
+├── deploy_config.sh              # 配置文件  
+├── README.md                     # 主项目说明  
+├── USAGE.md                      # 使用指南  
+├── TROUBLESHOOTING.md           # 故障排除  
+├── CONTRIBUTING.md              # 贡献指南  
+├── LICENSE                       # 许可证  
+├── PROJECT_SUMMARY.md           # 项目总结  
+├── quick_install.sh             # 快速安装脚本  
+├── scripts/                     # 监控部署脚本  
+│   └── deploy_monitoring.sh     # 基础架构监控脚本  
+├── monitoring-system/           # 业务监控系统  
+│   ├── scripts/  
+│   │   ├── check_service.sh     # 主监控脚本  
+│   │   └── test_alert.sh        # 告警测试脚本  
+│   ├── configs/  
+│   │   └── monitor.conf.example # 配置文件示例  
+│   ├── docs/  
+│   ├── README.md                # 监控系统文档  
+│   └── install_monitoring.sh    # 监控安装脚本  
+└── .gitignore                   # Git忽略规则  
 ## 📊 部署流程
 1. 系统更新与初始化
 2. 安装配置 Nginx
